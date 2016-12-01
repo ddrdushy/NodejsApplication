@@ -8,6 +8,8 @@ var app=express();
 
 require("./passport-init.js");
 
+app.set('port', (process.env.PORT || 3000));
+
 app.set("view engine","jade");
 app.use(express.static("public"));
 app.use(express.static("node_modules/bootstrap/dist"));
@@ -32,8 +34,8 @@ app.use(authRouter);
 var userRouter=require('./user');
 app.use("/user",ensureAuthenticated,userRouter);
 
-app.listen(PORT,()=>{
-   console.log("Server is running");
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
 });
 
 function ensureAuthenticated(req, res, next) {
