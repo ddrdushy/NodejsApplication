@@ -1,0 +1,59 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title= title
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/style.css')
+
+    body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+            .container
+                #navbar.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href='/logout') Home
+                        li.active
+                            a(href='/user') User
+                    ul.nav.navbar-nav.navbar-right
+                         li
+                            a(href='/logout') Logout
+    h1.text-center= "Hello " + user.name.givenName
+    .container
+        .main-content
+            block content
+        div.row
+            .col-md-4.text-center
+                table.table.table-bordered
+                    tr
+                        td(colspan="2" align="center")
+                            img.img-responsive.img-circle(src=user._json.image.url+"0" width="250px" height="250px")
+                    tr
+                        td.bold Display Name
+                        td=user.displayName
+                    tr
+                        td.bold Email
+                        td=user.emails[0].value
+                    tr
+                        td.bold Gender
+                        td=user.gender
+            div.col-md-8
+                form(method="post")
+                    textarea.form-control(rows=2 ,name="message",placeholder="Enter the message")
+                    br
+                    button.btn.btn-primary.col-md-12(type="submit ") Add
+                br
+                br
+                table.table.table-hover
+                    thead
+                        tr
+                            th Date
+                            th Messsage
+                    tbody
+                        each message in messages
+                            tr
+                                td= message.date
+                                td= message.message
+
