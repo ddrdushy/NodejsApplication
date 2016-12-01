@@ -32,7 +32,7 @@ app.use(authRouter);
 var userRouter=require('./user');
 app.use("/user",ensureAuthenticated,userRouter);
 
-app.listen(3000,'127.0.0.1',()=>{
+app.listen(3000,()=>{
    console.log("Server is running");
 });
 
