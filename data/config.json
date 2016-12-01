@@ -2,6 +2,6 @@
   "google": {
     "clientID": "720856297822-hpeiaki7a5c4bq2bcd856hu0olg2v11l.apps.googleusercontent.com",
     "clientSecret": "UhR_mm41PKOx17p72ZqWtOqU",
-    "callbackURL": "https://nodeinterapp.herokuapp.com/auth/google/callback"
+    "callbackURL": "https://nodeintern.herokuapp.com/auth/google/callback"
   }
 }
